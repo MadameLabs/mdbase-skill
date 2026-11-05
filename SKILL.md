@@ -25,7 +25,7 @@ A project is an mdbase collection if it contains an `mdbase.yaml` file at the ro
 
 Nested folders that contain their own `mdbase.yaml` are separate collections.
 
-Then read `settings.types_folder` and `settings.contracts_folder` from `mdbase.yaml`. They default to `_types` and `_contracts`; a collection may move them (for example to `_config/mdbase/types`). Below, "the types folder" and "the contracts folder" mean these resolved paths, never a hard-coded `_types/`.
+Then read `settings.types_folder` from `mdbase.yaml`. It defaults to `_types`; a collection may move it (for example to `_config/mdbase/types`). Below, "the types folder" means this resolved path, never a hard-coded `_types/`. Data contracts follow `settings.contracts_folder` (default `_contracts`) the same way.
 
 ### Initializing a collection
 
