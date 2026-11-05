@@ -19,6 +19,8 @@ A project is an mdbase collection if it contains an `mdbase.yaml` file at the ro
 
 Nested folders that contain their own `mdbase.yaml` are separate collections.
 
+Then read `settings.types_folder` and `settings.contracts_folder` from `mdbase.yaml`. They default to `_types` and `_contracts`; a collection may move them (for example to `_config/mdbase/types`). Below, "the types folder" and "the contracts folder" mean these resolved paths, never a hard-coded `_types/`.
+
 ### Initializing a collection
 
 1. Create `mdbase.yaml`:
@@ -28,13 +30,13 @@ Nested folders that contain their own `mdbase.yaml` are separate collections.
    ```
 
    Add settings only when they differ from the defaults (see the reference).
-2. Create the `_types/` directory.
+2. Create the types folder (`_types/` unless `settings.types_folder` says otherwise).
 3. Ask what types the user needs, or infer them from existing files.
-4. Write one type file per type in `_types/`.
+4. Write one type file per type in the types folder.
 
 ### Creating or editing type files
 
-A type file is a markdown file in `_types/` whose frontmatter defines the type and whose body documents it for people.
+A type file is a markdown file in the types folder whose frontmatter defines the type and whose body documents it for people.
 
 ```markdown
 ---
@@ -123,7 +125,7 @@ Answer questions about a collection by reading the files and applying the same l
 ### Validating
 
 1. Check that `mdbase.yaml` parses and that its settings are valid.
-2. Check every file in `_types/` against the type-file rules.
+2. Check every file in the types folder against the type-file rules.
 3. For each record:
    - its frontmatter is a YAML mapping
    - its explicit type names exist, or its `match` rules select types
